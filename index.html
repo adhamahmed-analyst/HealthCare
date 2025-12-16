@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare Connect - Perfect Home Design</title>
+    
+    <style>
+        /* --- Professional Core Styles v3 (Embedded) --- */
+        :root {
+            --primary-color: #0d47a1;     /* Dark Blue/Navy for Trust */
+            --secondary-color: #388e3c;   /* Deep Green for Health */
+            --accent-color: #ff9800;      /* Orange for Alerts/Highlights */
+            --text-dark: #212121;
+            --text-light: #ffffff;
+            --bg-light: #ffffff;
+            --bg-secondary: #f0f4f7;      /* Very light cool gray */
+            --shadow-deep: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --font-stack: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-secondary);
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+
+        /* --- Header and Navigation --- */
+        .header {
+            background: var(--bg-light);
+            padding: 1.25rem 0;
+            border-bottom: 8px solid var(--primary-color);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 2.5rem;
+            font-weight: 900;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 0.8rem 1.6rem;
+            display: block;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 6px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .navbar ul li a:hover,
+        .navbar ul li a.active {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(13, 71, 161, 0.4);
+        }
+
+        /* --- Hero Section --- */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .hero {
+            background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+            padding: 7rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-top: 15px;
+            margin-bottom: 40px;
+            color: #555;
+        }
+
+        /* --- Buttons & Cards --- */
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--text-light);
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(56, 142, 60, 0.4);
+        }
+
+        .btn:hover {
+            background: #2e7d32;
+            transform: translateY(-1px);
+        }
+
+        .card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow-deep);
+            transition: box-shadow 0.4s ease-in-out, transform 0.3s;
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+            transform: translateY(-3px);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        
+        /* --- Footer --- */
+        .footer {
+            background: var(--text-dark);
+            color: #bdbdbd;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo"><a href="index.html">MediCare Connect</a></div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="health-and-medicines.html">Health & Medicines</a></li>
+                    <li><a href="doctor-reservations.html">Doctor Reservations</a></li>
+                    <li><a href="news.html">Medicines News</a></li>
+                    <li><a href="profile.html">Profile (Tracker)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section hero" style="text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 4rem; color: var(--primary-color);">Your Health, Our Priority.</h1>
+            <p>The modern platform for seamless medical reservations and personalized wellness tracking.</p>
+            <a href="doctor-reservations.html" class="btn">Book Your Appointment Now</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-color);">Discover Our Core Features</h2>
+            <div class="grid-3">
+                
+                <div class="card">
+                    <h3 style="color: var(--secondary-color);">🔬 Latest Medical News</h3>
+                    <p>Stay informed with breaking news and crucial updates on pharmaceuticals and health policy.</p>
+                    <a href="news.html" class="btn" style="padding: 10px 20px; margin-top: 20px;">Read News</a>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--secondary-color);">📅 Quick Reservation System</h3>
+                    <p>Secure appointments with top-rated doctors in minutes, tailored to your schedule.</p>
+                    <a href="doctor-reservations.html" class="btn" style="padding: 10px 20px; margin-top: 20px;">Reserve Slot</a>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--secondary-color);">📈 Wellness Tracker</h3>
+                    <p>Monitor your appointments, prescriptions, and health metrics in your personal dashboard.</p>
+                    <a href="profile.html" class="btn" style="padding: 10px 20px; margin-top: 20px;">My Profile</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 MediCare Connect. All Rights Reserved. | Premium Design with HTML & CSS.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

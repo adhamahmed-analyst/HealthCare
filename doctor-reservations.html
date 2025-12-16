@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Reservations - MediCare Connect</title>
+    
+    <style>
+        /* --- Professional Core Styles v4 --- */
+        :root {
+            --primary-color: #0d47a1;     /* Dark Blue/Navy for Trust */
+            --secondary-color: #388e3c;   /* Deep Green for Health */
+            --accent-color: #ff9800;      /* Orange for Alerts/Highlights */
+            --text-dark: #212121;
+            --text-light: #ffffff;
+            --bg-light: #ffffff;
+            --bg-secondary: #f0f4f7;      /* Very light cool gray */
+            --shadow-deep: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --font-stack: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-secondary);
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+
+        /* --- Header and Navigation --- */
+        .header {
+            background: var(--bg-light);
+            padding: 1.25rem 0;
+            border-bottom: 8px solid var(--primary-color);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 2.5rem;
+            font-weight: 900;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 0.8rem 1.6rem;
+            display: block;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 6px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .navbar ul li a:hover,
+        .navbar ul li a.active {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(13, 71, 161, 0.4);
+        }
+
+        /* --- Utility Classes & Buttons --- */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow-deep);
+            transition: box-shadow 0.4s ease-in-out, transform 0.3s;
+            border-top: 5px solid var(--secondary-color);
+            margin-bottom: 20px; /* Space between steps */
+        }
+
+        .card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+            transform: translateY(-3px);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--text-light);
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(56, 142, 60, 0.4);
+        }
+
+        .btn:hover {
+            background: #2e7d32;
+            transform: translateY(-1px);
+        }
+
+        /* --- Form Styling (Elegant) --- */
+        .form-group {
+            margin-bottom: 0; 
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            background: var(--bg-secondary);
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        /* --- Doctor Card (Refined) --- */
+        .doctor-card {
+            border-left: 8px solid var(--secondary-color);
+            background: linear-gradient(to right, #ffffff, var(--bg-secondary));
+            border-radius: 15px;
+            padding: 25px;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s;
+        }
+        
+        .doctor-card:hover {
+            border-left-color: var(--primary-color);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .doctor-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+        }
+        
+        .doctor-info {
+            flex-grow: 1;
+        }
+        
+        .doctor-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .doctor-rating {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .availability {
+            text-align: right;
+        }
+
+        .availability .btn-book {
+            background: var(--accent-color);
+            color: var(--text-light);
+            font-weight: 700;
+            border-radius: 8px;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(255, 152, 0, 0.5);
+            transition: background 0.3s;
+        }
+        
+        .availability .btn-book:hover {
+            background: #e68a00;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background: var(--text-dark);
+            color: #bdbdbd;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <div class="logo"><a href="index.html">MediCare Connect</a></div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="health-and-medicines.html">Health & Medicines</a></li>
+                    <li><a href="doctor-reservations.html" class="active">Doctor Reservations</a></li>
+                    <li><a href="news.html">Medicines News</a></li>
+                    <li><a href="profile.html">Profile (Tracker)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section" style="padding-top: 2rem;">
+        <div class="container">
+            <h1 style="color: var(--primary-color); margin-bottom: 2rem;">Book Your Next Appointment</h1>
+            
+            <div class="card">
+                <h2 style="color: var(--secondary-color); font-weight: 600;">Step 1: Find a Doctor</h2>
+                <form>
+                    <div class="grid-3">
+                        <div class="form-group">
+                            <label for="specialty">Specialty:</label>
+                            <select id="specialty">
+                                <option value="general">General Practitioner</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="dermatology" selected>Dermatology</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Preferred Date:</label>
+                            <input type="date" id="date" value="2026-01-15" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location:</label>
+                            <input type="text" id="location" placeholder="City or Postal Code" value="London, UK">
+                        </div>
+                    </div>
+                    <div class="form-group" style="text-align: center; margin-top: 30px;">
+                        <button type="submit" class="btn">Search Available Doctors</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card" style="border-top-color: var(--primary-color); padding: 30px;">
+                <h2 style="color: var(--primary-color); font-weight: 600; margin-bottom: 25px;">Step 2: Select a Specialist</h2>
+
+                <div class="doctor-card">
+                    <img src="Doctor 1.png" alt="Dr. Anya Sharma">
+                    <div class="doctor-info">
+                        <h3>Dr. Anya Sharma, MD</h3>
+                        <div class="doctor-rating">★★★★★ (240 Reviews)</div>
+                        <p>Internal Medicine | **12 Years Experience** | Fluent in Spanish</p>
+                        <p style="color: #555;">Clinic: Midtown Medical Plaza</p>
+                    </div>
+                    <div class="availability">
+                        <p style="color: var(--secondary-color); font-weight: bold; margin-bottom: 5px;">Available Slot: 11:00 AM</p>
+                        <a href="#" class="btn-book">Book 11:00 AM</a>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="Doctot 2.jpeg" alt="Dr. Thomas Reed">
+                    <div class="doctor-info">
+                        <h3>Dr. Thomas Reed</h3>
+                        <div class="doctor-rating">★★★★☆ (85 Reviews)</div>
+                        <p>Dermatology | **5 Years Experience** | Telemedicine Specialist</p>
+                        <p style="color: #555;">Clinic: Health First Dermatology</p>
+                    </div>
+                    <div class="availability">
+                        <p style="color: var(--secondary-color); font-weight: bold; margin-bottom: 5px;">Available Slot: 3:30 PM</p>
+                        <a href="#" class="btn-book">Book 3:30 PM</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 MediCare Connect. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
